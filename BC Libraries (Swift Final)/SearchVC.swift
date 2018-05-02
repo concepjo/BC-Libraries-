@@ -19,7 +19,8 @@ class SearchVC: UIViewController {
         super.viewDidLoad()
         
         let itemToSearch = search
-        let url = URL(string: "https://library.bc.edu/search/?any=" + itemToSearch!)
+        let updatedSearch = itemToSearch?.replacingOccurrences(of: " ", with: "%20")
+        let url = URL(string: "https://library.bc.edu/search/?any=" + updatedSearch!)
         let request = URLRequest(url: url!)
             
        webView.load(request)
